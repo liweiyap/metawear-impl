@@ -1,4 +1,4 @@
-## Current output
+## Current output from Terminal
 ```
 Connecting to F2:DC:73:7D:AA:08
 error 1590070706.778786: Error on line: 296 (src/blestatemachine.cc): Operation now in progress
@@ -30,3 +30,8 @@ Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 13 128
 Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 15 128 
 Error initialising board: 16
 ```
+
+## Dependencies
+* [MetaWear C++ SDK](https://github.com/mbientlab/MetaWear-SDK-Cpp), version [0.18.4](https://github.com/mbientlab/MetaWear-SDK-Cpp/tree/0.18.4)
+* [Warble](https://github.com/mbientlab/Warble) for setting up Bluetooth LE connection
+* [Boost](https://www.boost.org/) to help with UUIDs
