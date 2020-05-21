@@ -1,3 +1,6 @@
+## PC Settings
+* Ubuntu 16.04
+
 ## Current output from Terminal
 ```
 Connecting to F2:DC:73:7D:AA:08
