@@ -20,6 +20,7 @@ static inline void gattCharToCStr(const MblMwGattChar* characteristic, char cstr
 static MblMwMetaWearBoard* board;
 static WarbleGatt* gatt;
 static const char* MetaWearMAC;
+static const char* dongleHCI;
 static MblMwBtleConnection btleConnection;
 
 // reading GATT characteristic
@@ -368,6 +369,16 @@ static void connectCompletedCallback(void* context, WarbleGatt* caller, const ch
     }
 }
 
+void SensorCaptureMetaWearImpl::createWarbleGatt()
+{
+    WarbleOption gattConfig[2] = {
+	{"mac", MetaWearMAC},
+	{"hci", dongleHCI}
+    };
+
+    gatt = warble_gatt_create_with_options(2, gattConfig);
+}
+
 static void attemptConnectToMetaWear()
 {
     std::cout << "Connecting to " << MetaWearMAC << "\n";
@@ -444,14 +455,15 @@ static inline void gattCharToCStr(const MblMwGattChar* characteristic, char cstr
 
 int main(int argc, char* argv[])
 {
-    if (argc < 2)
+    if (argc < 3)
     {
-	std::cerr << "main.cpp: error: ./main [MAC address of device]\n";
+	std::cerr << "main.cpp: error: ./main [MAC address of device] [HCI address of dongle]\n";
 	return 1;
     }
 
     MetaWearMAC = argv[1];
-    gatt = warble_gatt_create(MetaWearMAC);
+    dongleHCI = argv[2];
+    createWarbleGatt();
     attemptConnectToMetaWear();
     btleConnection = { gatt, writeGattChar, readGattChar, enableCharNotify, onDisconnect };
     board = mbl_mw_metawearboard_create(&btleConnection);
