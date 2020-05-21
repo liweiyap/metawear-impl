@@ -3,7 +3,6 @@
 #include <deque>
 #include <mutex>
 #include <future>
-#include <unordered_map>
 
 #include <boost/uuid/uuid.hpp>
 #include <boost/uuid/uuid_io.hpp>
@@ -50,7 +49,14 @@ static enableNotifyContext* s_enableNotifyContext;
 static std::mutex enableNotifyMutex;
 
 // calling handler if disconnect
-static std::unordered_map<const void*, MblMwFnVoidVoidPtrInt> dcHandlers;
+struct dcContext
+{
+    std::promise<int32_t>* task;
+    const void* caller;
+    MblMwFnVoidVoidPtrInt handler;
+};
+static dcContext* s_dcContext;
+static std::mutex dcMutex;
 
 static WarbleGattChar* warbleGattToGattChar(WarbleGatt* gatt, const MblMwGattChar* characteristic)
 {
@@ -280,11 +286,43 @@ static void enableCharNotify(void* context, const void* caller, const MblMwGattC
     }
 }
 
+static void dcCompletedCallback(void* context, WarbleGatt* caller, int32_t value)
+{
+    (void) caller;
+    
+    auto _context = static_cast<dcContext*>(context);
+
+    {
+	std::unique_lock<std::mutex> lock(dcMutex);
+
+	_context->handler(_context->caller, value);
+    }
+}
+
 static void onDisconnect(void* context, const void* caller, MblMwFnVoidVoidPtrInt handler)
 {
-    // call this handler every time connection is lost, use 0 for 'value' parameter
-    (void) context;
-    dcHandlers.insert({ caller, handler });
+    WarbleGatt* gatt = static_cast<WarbleGatt*>(context);
+
+    int32_t connectionStatus = 0;
+
+    {
+	std::unique_lock<std::mutex> lock(dcMutex);
+
+        connectionStatus = warble_gatt_is_connected(gatt);
+	
+	s_dcContext = new dcContext;
+	s_dcContext->caller = caller;
+	s_dcContext->handler = handler;
+    }
+
+    if (connectionStatus == 0)
+    {
+	warble_gatt_on_disconnect(gatt, s_dcContext, dcCompletedCallback);
+    }
+    else
+    {
+	handler(caller, MBL_MW_STATUS_OK);
+    }
 }
 
 static void initCompleteCallback(void* context, MblMwMetaWearBoard* board, int32_t status)
@@ -305,7 +343,7 @@ static void initCompleteCallback(void* context, MblMwMetaWearBoard* board, int32
     task->set_value();
 }
 
-static void init(MblMwMetaWearBoard* board)
+static void initBoard(MblMwMetaWearBoard* board)
 {
     std::promise<void> initializeTask;
     mbl_mw_metawearboard_initialize(board, &initializeTask, initCompleteCallback);
@@ -417,5 +455,5 @@ int main(int argc, char* argv[])
     attemptConnectToMetaWear();
     btleConnection = { gatt, writeGattChar, readGattChar, enableCharNotify, onDisconnect };
     board = mbl_mw_metawearboard_create(&btleConnection);
-    init(board);
+    initBoard(board);
 }
