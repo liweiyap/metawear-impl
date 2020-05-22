@@ -1,6 +1,11 @@
 ## PC Settings
 * Ubuntu 16.04
 
+## Dependencies
+* [MetaWear C++ SDK](https://github.com/mbientlab/MetaWear-SDK-Cpp), version [0.18.4](https://github.com/mbientlab/MetaWear-SDK-Cpp/tree/0.18.4)
+* [Warble](https://github.com/mbientlab/Warble) ([version 1.1.5](https://github.com/mbientlab/Warble/tree/1.1.5))for setting up Bluetooth LE connection
+* [Boost](https://www.boost.org/) to help with UUIDs
+
 ## Current output from Terminal
 ```
 Connecting to F2:DC:73:7D:AA:08
@@ -33,8 +38,3 @@ Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 13 128
 Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 15 128 
 Error initialising board: 16
 ```
-
-## Dependencies
-* [MetaWear C++ SDK](https://github.com/mbientlab/MetaWear-SDK-Cpp), version [0.18.4](https://github.com/mbientlab/MetaWear-SDK-Cpp/tree/0.18.4)
-* [Warble](https://github.com/mbientlab/Warble) for setting up Bluetooth LE connection
-* [Boost](https://www.boost.org/) to help with UUIDs
