@@ -24,7 +24,7 @@
 * Self-contained piece of MetaWear SDK calls that replicates this issue is found in [`main.cpp`](https://github.com/liweiyap/metawear-impl/blob/master/main.cpp). The entire code can be copied/pasted and run, assuming that the following dependencies are also installed:
   * [Warble](https://github.com/mbientlab/Warble) ([version 1.1.5](https://github.com/mbientlab/Warble/tree/1.1.5)) for setting up Bluetooth LE connection
   * [Boost](https://www.boost.org/) to help with UUIDs
-* All the output from `stdout`/`stderr`:
+* All the output from `stdout`/`stderr` (with the message `Error initialising board` and the status of `16` for `MBL_MW_STATUS_ERROR_TIMEOUT` all the way at the bottom):
 ```
 Connecting to F2:DC:73:7D:AA:08
 error 1590070706.778786: Error on line: 296 (src/blestatemachine.cc): Operation now in progress
