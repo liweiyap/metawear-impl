@@ -12,11 +12,11 @@
 1. Expected to print the message `Board initialised` from `initBoard(board)` with a status of `0` (`MBL_MW_STATUS_OK`).
 2. Instead, observed the message `Error initialising board` from `initBoard(board)` with a status of `16` (`MBL_MW_STATUS_ERROR_TIMEOUT`).
 3. The steps leading up to this behaviour in [`main.cpp`](https://github.com/liweiyap/metawear-impl/blob/master/main.cpp):
-  1. A `WarbleGatt` object is first created using the device MAC address and the host HCI address.
-  2. Connection to the device MAC address via `warble_gatt_connect_async` is successful.
-  3. An `MblMwBtleConnection` object is created using our own implementations of the GATT operations.
-  4. An `MblMwMetaWearBoard` object is instantiated using `mbl_mw_metawearboard_create`.
-  5. Finally, `initBoard(board)` calls `mbl_mw_metawearboard_initialize`, which initialises the internal state of the `MblMwMetaWearBoard` object. This is where the observed message is printed.
+    1. A `WarbleGatt` object is first created using the device MAC address and the host HCI address.
+    2. Connection to the device MAC address via `warble_gatt_connect_async` is successful.
+    3. An `MblMwBtleConnection` object is created using our own implementations of the GATT operations.
+    4. An `MblMwMetaWearBoard` object is instantiated using `mbl_mw_metawearboard_create`.
+    5. Finally, `initBoard(board)` calls `mbl_mw_metawearboard_initialize`, which initialises the internal state of the `MblMwMetaWearBoard` object. This is where the observed message is printed.
 
 ## SDK
 * [MetaWear C++ SDK](https://github.com/mbientlab/MetaWear-SDK-Cpp), version [0.18.4](https://github.com/mbientlab/MetaWear-SDK-Cpp/tree/0.18.4)
