@@ -1,9 +1,10 @@
-## PC Settings
+## General settings
 * Ubuntu 16.04
+* [MMR](https://mbientlab.com/store/metamotionr/) and [MMR+](https://mbientlab.com/store/mmrp-metamotionrp/)
 
 ## Dependencies
 * [MetaWear C++ SDK](https://github.com/mbientlab/MetaWear-SDK-Cpp), version [0.18.4](https://github.com/mbientlab/MetaWear-SDK-Cpp/tree/0.18.4)
-* [Warble](https://github.com/mbientlab/Warble) ([version 1.1.5](https://github.com/mbientlab/Warble/tree/1.1.5))for setting up Bluetooth LE connection
+* [Warble](https://github.com/mbientlab/Warble) ([version 1.1.5](https://github.com/mbientlab/Warble/tree/1.1.5)) for setting up Bluetooth LE connection
 * [Boost](https://www.boost.org/) to help with UUIDs
 
 ## Current output from Terminal
