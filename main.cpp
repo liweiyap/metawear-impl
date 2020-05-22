@@ -369,7 +369,7 @@ static void connectCompletedCallback(void* context, WarbleGatt* caller, const ch
     }
 }
 
-void SensorCaptureMetaWearImpl::createWarbleGatt()
+static void createWarbleGatt()
 {
     WarbleOption gattConfig[2] = {
 	{"mac", MetaWearMAC},
