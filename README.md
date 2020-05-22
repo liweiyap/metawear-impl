@@ -11,7 +11,7 @@
 ## Description of Problem
 1. Expected to print the message `Board initialised` from `initBoard(board)` with a status of `0` (`MBL_MW_STATUS_OK`).
 2. Instead, observed the message `Error initialising board` from `initBoard(board)` with a status of `16` (`MBL_MW_STATUS_ERROR_TIMEOUT`).
-3. The steps leading up to this behaviour in `main.cpp`:
+3. The steps leading up to this behaviour in [`main.cpp`](https://github.com/liweiyap/metawear-impl/blob/master/main.cpp):
   * A `WarbleGatt` object is first created using the device MAC address and the host HCI address.
   * Connection to the device MAC address via `warble_gatt_connect_async` is successful.
   * An `MblMwBtleConnection` object is created using our own implementations of the GATT operations.
