@@ -9,14 +9,15 @@
 * [Linux Bluetooth library, version 5.54](http://www.bluez.org/)
 
 ## Description of Problem
-1. Expected to print the message `Board initialised` from `initBoard(board)` with a status of `0` (`MBL_MW_STATUS_OK`).
-2. Instead, observed the message `Error initialising board` from `initBoard(board)` with a status of `16` (`MBL_MW_STATUS_ERROR_TIMEOUT`).
+1. Expected to print the message `Board initialised` from `initBoard()` with a status of `0` (`MBL_MW_STATUS_OK`).
+2. Instead, observed the message `Error initialising board` from `initBoard()` with a status of `16` (`MBL_MW_STATUS_ERROR_TIMEOUT`).
 3. The steps leading up to this behaviour in [`main.cpp`](https://github.com/liweiyap/metawear-impl/blob/master/main.cpp):
     1. A `WarbleGatt` object is first created using the device MAC address and the host HCI address.
     2. Connection to the device MAC address via `warble_gatt_connect_async` is successful.
     3. An `MblMwBtleConnection` object is created using our own implementations of the GATT operations.
     4. An `MblMwMetaWearBoard` object is instantiated using `mbl_mw_metawearboard_create`.
-    5. Finally, `initBoard(board)` calls `mbl_mw_metawearboard_initialize`, which initialises the internal state of the `MblMwMetaWearBoard` object. This is where the observed message is printed.
+    5. Finally, `initBoard()` calls `mbl_mw_metawearboard_initialize`, which initialises the internal state of the `MblMwMetaWearBoard` object. This is where the observed message is printed.
+4. As a result, `mbl_mw_sensor_fusion_set_mode(board, MBL_MW_SENSOR_FUSION_MODE_IMU_PLUS)` throws a `std::out_of_range` exception.
 
 ## SDK
 * [MetaWear C++ SDK](https://github.com/mbientlab/MetaWear-SDK-Cpp), version [0.18.4](https://github.com/mbientlab/MetaWear-SDK-Cpp/tree/0.18.4)
@@ -24,7 +25,7 @@
 * Self-contained piece of MetaWear SDK calls that replicates this issue is found in [`main.cpp`](https://github.com/liweiyap/metawear-impl/blob/master/main.cpp). The entire code can be copied/pasted and run, assuming that the following dependencies are also installed:
   * [Warble](https://github.com/mbientlab/Warble) ([version 1.1.5](https://github.com/mbientlab/Warble/tree/1.1.5)) for setting up Bluetooth LE connection
   * [Boost](https://www.boost.org/) to help with UUIDs
-* All the output from `stdout`/`stderr` (with the message `Error initialising board` and the status of `16` for `MBL_MW_STATUS_ERROR_TIMEOUT` all the way at the bottom):
+* All the output from `stdout`/`stderr` (with the message `Error initialising board` and the status of `16` for `MBL_MW_STATUS_ERROR_TIMEOUT` near the bottom):
 ```
 Connecting to F2:DC:73:7D:AA:08
 error 1590070706.778786: Error on line: 296 (src/blestatemachine.cc): Operation now in progress
@@ -55,4 +56,7 @@ Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 12 128
 Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 13 128 
 Writing characteristic: {326a9001-85cb-9195-d9dd-464cfbbae75a}: 15 128 
 Error initialising board: 16
+terminate called after throwing an instance of 'std::out_of_range'
+  what():  _Map_base::at
+Aborted (core dumped)
 ```
