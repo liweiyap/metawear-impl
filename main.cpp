@@ -8,7 +8,11 @@
 #include <boost/uuid/uuid_io.hpp>
 #include <metawear/core/metawearboard.h>
 #include <warble/warble.h>
+#include <metawear/sensor/sensor_fusion.h>
 #include <metawear/core/status.h>
+#include <metawear/core/data.h>
+#include <metawear/core/types.h>
+#include <metawear/core/datasignal.h>
 
 
 // utils
@@ -344,11 +348,47 @@ static void initCompleteCallback(void* context, MblMwMetaWearBoard* board, int32
     task->set_value();
 }
 
-static void initBoard(MblMwMetaWearBoard* board)
+static void initBoard()
 {
+    mbl_mw_metawearboard_set_time_for_response(board, 1000);
+
     std::promise<void> initializeTask;
     mbl_mw_metawearboard_initialize(board, &initializeTask, initCompleteCallback);
     initializeTask.get_future().get();
+}
+
+static void configureSensorFusion()
+{
+    mbl_mw_sensor_fusion_set_mode(board, MBL_MW_SENSOR_FUSION_MODE_IMU_PLUS);
+    mbl_mw_sensor_fusion_write_config(board);
+}
+
+static void subscribeQuaternionCompletedCallback(void* context, const MblMwData* data)
+{
+    auto task = static_cast<std::promise<void>*>(context);
+
+    MblMwQuaternion* quaternion = static_cast<MblMwQuaternion*>(data->value);
+    printf("{w: %.3f, x: %.3f, y: %.3f, z: %.3f}\n", quaternion->w, quaternion->x, quaternion->y, quaternion->z);
+
+    task->set_value();
+}
+
+static void streamQuaternion()
+{
+    auto quaternion_wxyz = mbl_mw_sensor_fusion_get_data_signal(board, MBL_MW_SENSOR_FUSION_DATA_QUATERNION);
+    if (!quaternion_wxyz)
+    {
+        std::cout << "quaternion_wxyz is a nullptr\n";
+    }
+    else
+    {
+        std::promise<void> subscribeTask;
+	mbl_mw_datasignal_subscribe(quaternion_wxyz, &subscribeTask, subscribeQuaternionCompletedCallback);
+        subscribeTask.get_future().get();
+
+        mbl_mw_sensor_fusion_enable_data(board, MBL_MW_SENSOR_FUSION_DATA_QUATERNION);
+        mbl_mw_sensor_fusion_start(board);
+    }
 }
 
 // taken from example/connect.cpp in Warble repo
@@ -467,5 +507,7 @@ int main(int argc, char* argv[])
     attemptConnectToMetaWear();
     btleConnection = { gatt, writeGattChar, readGattChar, enableCharNotify, onDisconnect };
     board = mbl_mw_metawearboard_create(&btleConnection);
-    initBoard(board);
+    initBoard();
+    configureSensorFusion();
+    streamQuaternion();
 }
