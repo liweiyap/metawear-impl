@@ -60,36 +60,36 @@ terminate called after throwing an instance of 'std::out_of_range'
   what():  _Map_base::at
 Aborted (core dumped)
 </pre>
-* Output from `btmon`:
+* Output from `btmon` before and up till <code><b>Error initialising board: 16</b></code>:
 ```
 Bluetooth monitor ver 5.54
-= Note: Linux version 4.15.0-101-generic (x86_64)                      0.539630
-= Note: Bluetooth subsystem version 2.22                               0.539631
-= New Index: 5C:F3:70:99:2A:28 (Primary,USB,hci0)               [hci0] 0.539632
-= Open Index: 5C:F3:70:99:2A:28                                 [hci0] 0.539632
-= Index Info: 5C:F3:70:99:2A:28 (Broadcom Corporation)          [hci0] 0.539633
-@ MGMT Open: bluetoothd (privileged) version 1.14             {0x0001} 0.539633
-@ MGMT Open: btmon (privileged) version 1.14                  {0x0002} 0.539643
-@ RAW Open: main                                              {0x0003} 2.741449
-@ RAW Close: main                                             {0x0003} 2.741461
-@ RAW Open: main                                              {0x0003} 2.741468
-@ RAW Close: main                                             {0x0003} 2.741470
-< HCI Command: LE Set Scan Parameters (0x08|0x000b) plen 7   #1 [hci0] 2.741495
+= Note: Linux version 4.15.0-101-generic (x86_64)                      0.610727
+= Note: Bluetooth subsystem version 2.22                               0.610729
+= New Index: 5C:F3:70:99:2A:28 (Primary,USB,hci0)               [hci0] 0.610729
+= Open Index: 5C:F3:70:99:2A:28                                 [hci0] 0.610729
+= Index Info: 5C:F3:70:99:2A:28 (Broadcom Corporation)          [hci0] 0.610730
+@ MGMT Open: bluetoothd (privileged) version 1.14             {0x0001} 0.610730
+@ MGMT Open: btmon (privileged) version 1.14                  {0x0002} 0.610741
+@ RAW Open: main                                              {0x0003} 8.572763
+@ RAW Close: main                                             {0x0003} 8.572774
+@ RAW Open: main                                              {0x0003} 8.572782
+@ RAW Close: main                                             {0x0003} 8.572783
+< HCI Command: LE Set Scan Parameters (0x08|0x000b) plen 7   #1 [hci0] 8.572834
         Type: Passive (0x00)
         Interval: 60.000 msec (0x0060)
         Window: 30.000 msec (0x0030)
         Own address type: Public (0x00)
         Filter policy: Ignore not in white list (0x01)
-> HCI Event: Command Complete (0x0e) plen 4                  #2 [hci0] 2.742807
+> HCI Event: Command Complete (0x0e) plen 4                  #2 [hci0] 8.573833
       LE Set Scan Parameters (0x08|0x000b) ncmd 1
         Status: Success (0x00)
-< HCI Command: LE Set Scan Enable (0x08|0x000c) plen 2       #3 [hci0] 2.742819
+< HCI Command: LE Set Scan Enable (0x08|0x000c) plen 2       #3 [hci0] 8.573846
         Scanning: Enabled (0x01)
         Filter duplicates: Enabled (0x01)
-> HCI Event: Command Complete (0x0e) plen 4                  #4 [hci0] 2.743808
+> HCI Event: Command Complete (0x0e) plen 4                  #4 [hci0] 8.574774
       LE Set Scan Enable (0x08|0x000c) ncmd 1
         Status: Success (0x00)
-> HCI Event: LE Meta Event (0x3e) plen 43                    #5 [hci0] 3.037823
+> HCI Event: LE Meta Event (0x3e) plen 43                    #5 [hci0] 9.029811
       LE Advertising Report (0x02)
         Num reports: 1
         Event type: Connectable undirected - ADV_IND (0x00)
@@ -102,14 +102,14 @@ Bluetooth monitor ver 5.54
         128-bit Service UUIDs (partial): 1 entry
           Vendor specific (326a9000-85cb-9195-d9dd-464cfbbae75a)
         Name (complete): MetaWear
-        RSSI: -69 dBm (0xbb)
-< HCI Command: LE Set Scan Enable (0x08|0x000c) plen 2       #6 [hci0] 3.037880
+        RSSI: -78 dBm (0xb2)
+< HCI Command: LE Set Scan Enable (0x08|0x000c) plen 2       #6 [hci0] 9.029896
         Scanning: Disabled (0x00)
         Filter duplicates: Disabled (0x00)
-> HCI Event: Command Complete (0x0e) plen 4                  #7 [hci0] 3.039819
+> HCI Event: Command Complete (0x0e) plen 4                  #7 [hci0] 9.032811
       LE Set Scan Enable (0x08|0x000c) ncmd 1
         Status: Success (0x00)
-< HCI Command: LE Create Connection (0x08|0x000d) plen 25    #8 [hci0] 3.039866
+< HCI Command: LE Create Connection (0x08|0x000d) plen 25    #8 [hci0] 9.032857
         Scan interval: 60.000 msec (0x0060)
         Scan window: 60.000 msec (0x0060)
         Filter policy: White list is not used (0x00)
@@ -122,10 +122,10 @@ Bluetooth monitor ver 5.54
         Supervision timeout: 420 msec (0x002a)
         Min connection length: 0.000 msec (0x0000)
         Max connection length: 0.000 msec (0x0000)
-> HCI Event: Command Status (0x0f) plen 4                    #9 [hci0] 3.040816
+> HCI Event: Command Status (0x0f) plen 4                    #9 [hci0] 9.033807
       LE Create Connection (0x08|0x000d) ncmd 1
         Status: Success (0x00)
-> HCI Event: LE Meta Event (0x3e) plen 19                   #10 [hci0] 3.884805
+> HCI Event: LE Meta Event (0x3e) plen 19                   #10 [hci0] 9.870797
       LE Connection Complete (0x01)
         Status: Success (0x00)
         Handle: 64
@@ -136,7 +136,7 @@ Bluetooth monitor ver 5.54
         Connection latency: 0 (0x0000)
         Supervision timeout: 420 msec (0x002a)
         Master clock accuracy: 0x05
-@ MGMT Event: Device Connected (0x000b) plen 44        {0x0002} [hci0] 3.884881
+@ MGMT Event: Device Connected (0x000b) plen 44        {0x0002} [hci0] 9.870873
         LE Address: F2:DC:73:7D:AA:08 (Static)
         Flags: 0x00000000
         Data length: 31
@@ -146,7 +146,7 @@ Bluetooth monitor ver 5.54
         128-bit Service UUIDs (partial): 1 entry
           Vendor specific (326a9000-85cb-9195-d9dd-464cfbbae75a)
         Name (complete): MetaWear
-@ MGMT Event: Device Connected (0x000b) plen 44        {0x0001} [hci0] 3.884881
+@ MGMT Event: Device Connected (0x000b) plen 44        {0x0001} [hci0] 9.870873
         LE Address: F2:DC:73:7D:AA:08 (Static)
         Flags: 0x00000000
         Data length: 31
@@ -156,24 +156,24 @@ Bluetooth monitor ver 5.54
         128-bit Service UUIDs (partial): 1 entry
           Vendor specific (326a9000-85cb-9195-d9dd-464cfbbae75a)
         Name (complete): MetaWear
-< HCI Command: LE Read Remote Used... (0x08|0x0016) plen 2  #11 [hci0] 3.885020
+< HCI Command: LE Read Remote Used... (0x08|0x0016) plen 2  #11 [hci0] 9.871009
         Handle: 64
-> HCI Event: Command Status (0x0f) plen 4                   #12 [hci0] 3.886776
+> HCI Event: Command Status (0x0f) plen 4                   #12 [hci0] 9.871800
       LE Read Remote Used Features (0x08|0x0016) ncmd 1
         Status: Success (0x00)
-@ RAW Open: hciconfig (privileged) version 2.22               {0x0003} 3.890527
-@ RAW Close: hciconfig                                        {0x0003} 3.890554
-> HCI Event: LE Meta Event (0x3e) plen 12                   #13 [hci0] 4.076815
+@ RAW Open: hciconfig (privileged) version 2.22               {0x0003} 9.876280
+@ RAW Close: hciconfig                                        {0x0003} 9.876306
+> HCI Event: LE Meta Event (0x3e) plen 12                  #13 [hci0] 10.077841
       LE Read Remote Used Features (0x04)
         Status: Success (0x00)
         Handle: 64
         Features: 0x01 0x00 0x00 0x00 0x00 0x00 0x00 0x00
           LE Encryption
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #14 [hci0] 4.077036
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #14 [hci0] 10.077961
       ATT: Read By Group Type Request (0x10) len 6
         Handle range: 0x0001-0xffff
         Attribute group type: Primary Service (0x2800)
-> ACL Data RX: Handle 64 flags 0x02 dlen 24                 #15 [hci0] 4.223451
+> ACL Data RX: Handle 64 flags 0x02 dlen 24                #15 [hci0] 10.175877
       ATT: Read By Group Type Response (0x11) len 19
         Attribute data length: 6
         Attribute group list: 3 entries
@@ -183,39 +183,39 @@ Bluetooth monitor ver 5.54
         UUID: Generic Attribute Profile (0x1801)
         Handle range: 0x000e-0x0011
         UUID: Battery Service (0x180f)
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #16 [hci0] 4.223684
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #16 [hci0] 10.176084
       ATT: Read By Group Type Request (0x10) len 6
         Handle range: 0x0012-0xffff
         Attribute group type: Primary Service (0x2800)
-> HCI Event: Number of Completed Packets (0x13) plen 5      #17 [hci0] 4.271816
+> HCI Event: Number of Completed Packets (0x13) plen 5     #17 [hci0] 10.321794
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 12                 #18 [hci0] 4.320289
+> ACL Data RX: Handle 64 flags 0x02 dlen 12                #18 [hci0] 10.322006
       ATT: Read By Group Type Response (0x11) len 7
         Attribute data length: 6
         Attribute group list: 1 entry
         Handle range: 0x0012-0x001c
         UUID: Device Information (0x180a)
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #19 [hci0] 4.320462
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #19 [hci0] 10.322159
       ATT: Read By Group Type Request (0x10) len 6
         Handle range: 0x001d-0xffff
         Attribute group type: Primary Service (0x2800)
-> ACL Data RX: Handle 64 flags 0x02 dlen 26                 #20 [hci0] 4.467202
+> ACL Data RX: Handle 64 flags 0x02 dlen 26                #20 [hci0] 10.467814
       ATT: Read By Group Type Response (0x11) len 21
         Attribute data length: 20
         Attribute group list: 1 entry
         Handle range: 0x001d-0xffff
         UUID: Vendor specific (326a9000-85cb-9195-d9dd-464cfbbae75a)
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #21 [hci0] 4.467584
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #21 [hci0] 10.468031
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0001-0xffff
         Attribute type: Characteristic (0x2803)
-> HCI Event: Number of Completed Packets (0x13) plen 5      #22 [hci0] 4.515811
+> HCI Event: Number of Completed Packets (0x13) plen 5     #22 [hci0] 10.565792
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 27                 #23 [hci0] 4.710387
+> ACL Data RX: Handle 64 flags 0x02 dlen 27                #23 [hci0] 10.565843
       ATT: Read By Type Response (0x09) len 22
         Attribute data length: 7
         Attribute data list: 3 entries
@@ -225,11 +225,11 @@ Bluetooth monitor ver 5.54
         Value: 020500012a
         Handle: 0x0006
         Value: 020700042a
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #24 [hci0] 4.710599
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #24 [hci0] 10.566006
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0007-0xffff
         Attribute type: Characteristic (0x2803)
-> ACL Data RX: Handle 64 flags 0x02 dlen 27                 #25 [hci0] 4.905380
+> ACL Data RX: Handle 64 flags 0x02 dlen 27                #25 [hci0] 10.663372
       ATT: Read By Type Response (0x09) len 22
         Attribute data length: 7
         Attribute data list: 3 entries
@@ -239,15 +239,15 @@ Bluetooth monitor ver 5.54
         Value: 200c00052a
         Handle: 0x000f
         Value: 121000192a
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #26 [hci0] 4.905586
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #26 [hci0] 10.663579
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0010-0xffff
         Attribute type: Characteristic (0x2803)
-> HCI Event: Number of Completed Packets (0x13) plen 5      #27 [hci0] 4.917805
+> HCI Event: Number of Completed Packets (0x13) plen 5     #27 [hci0] 10.711777
         Num handles: 1
         Handle: 64
-        Count: 1
-> ACL Data RX: Handle 64 flags 0x02 dlen 27                 #28 [hci0] 5.002879
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 27                #28 [hci0] 10.809071
       ATT: Read By Type Response (0x09) len 22
         Attribute data length: 7
         Attribute data list: 3 entries
@@ -257,11 +257,11 @@ Bluetooth monitor ver 5.54
         Value: 021600242a
         Handle: 0x0017
         Value: 021800252a
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #29 [hci0] 5.003066
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #29 [hci0] 10.809230
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0018-0xffff
         Attribute type: Characteristic (0x2803)
-> ACL Data RX: Handle 64 flags 0x02 dlen 20                 #30 [hci0] 5.149687
+> ACL Data RX: Handle 64 flags 0x02 dlen 20                #30 [hci0] 10.955284
       ATT: Read By Type Response (0x09) len 15
         Attribute data length: 7
         Attribute data list: 2 entries
@@ -269,52 +269,48 @@ Bluetooth monitor ver 5.54
         Value: 021a00272a
         Handle: 0x001b
         Value: 021c00262a
-> HCI Event: Number of Completed Packets (0x13) plen 5      #31 [hci0] 5.149790
-        Num handles: 1
-        Handle: 64
-        Count: 2
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #32 [hci0] 5.149849
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #31 [hci0] 10.955518
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x001c-0xffff
         Attribute type: Characteristic (0x2803)
-> ACL Data RX: Handle 64 flags 0x02 dlen 27                 #33 [hci0] 5.392880
+> HCI Event: Number of Completed Packets (0x13) plen 5     #32 [hci0] 11.052757
+        Num handles: 1
+        Handle: 64
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 27                #33 [hci0] 11.101548
       ATT: Read By Type Response (0x09) len 22
         Attribute data length: 21
         Attribute data list: 1 entry
         Handle: 0x001e
         Value: 0e1f005ae7bafb4c46ddd99591cb8501906a32
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #34 [hci0] 5.393063
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #34 [hci0] 11.101731
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x001f-0xffff
         Attribute type: Characteristic (0x2803)
-> HCI Event: Number of Completed Packets (0x13) plen 5      #35 [hci0] 5.417791
-        Num handles: 1
-        Handle: 64
-        Count: 1
-> ACL Data RX: Handle 64 flags 0x02 dlen 27                 #36 [hci0] 5.490374
+> ACL Data RX: Handle 64 flags 0x02 dlen 27                #35 [hci0] 11.199611
       ATT: Read By Type Response (0x09) len 22
         Attribute data length: 21
         Attribute data list: 1 entry
         Handle: 0x0020
         Value: 1221005ae7bafb4c46ddd99591cb8506906a32
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #37 [hci0] 5.490600
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #36 [hci0] 11.199796
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0021-0xffff
         Attribute type: Characteristic (0x2803)
-> HCI Event: Number of Completed Packets (0x13) plen 5      #38 [hci0] 5.587793
+> HCI Event: Number of Completed Packets (0x13) plen 5     #37 [hci0] 11.247781
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 9                  #39 [hci0] 5.588332
+> ACL Data RX: Handle 64 flags 0x02 dlen 9                 #38 [hci0] 11.345194
       ATT: Error Response (0x01) len 4
         Read By Type Request (0x08)
         Handle: 0x0021
         Error: Attribute Not Found (0x0a)
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #40 [hci0] 5.588555
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #39 [hci0] 11.345410
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0001-0xffff
         Attribute type: Client Characteristic Configuration (0x2902)
-> ACL Data RX: Handle 64 flags 0x02 dlen 18                 #41 [hci0] 5.685334
+> ACL Data RX: Handle 64 flags 0x02 dlen 18                #40 [hci0] 11.443323
       ATT: Read By Type Response (0x09) len 13
         Attribute data length: 4
         Attribute data list: 3 entries
@@ -324,211 +320,226 @@ Bluetooth monitor ver 5.54
         Value: 0000
         Handle: 0x0022
         Value: 0000
-< ACL Data TX: Handle 64 flags 0x00 dlen 11                 #42 [hci0] 5.685536
+< ACL Data TX: Handle 64 flags 0x00 dlen 11                #41 [hci0] 11.443508
       ATT: Read By Type Request (0x08) len 6
         Handle range: 0x0023-0xffff
         Attribute type: Client Characteristic Configuration (0x2902)
-> HCI Event: Number of Completed Packets (0x13) plen 5      #43 [hci0] 5.734789
+> HCI Event: Number of Completed Packets (0x13) plen 5     #42 [hci0] 11.491779
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 9                  #44 [hci0] 5.831541
+> ACL Data RX: Handle 64 flags 0x02 dlen 9                 #43 [hci0] 11.588979
       ATT: Error Response (0x01) len 4
         Read By Type Request (0x08)
         Handle: 0x0023
         Error: Attribute Not Found (0x0a)
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #45 [hci0] 5.832067
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #44 [hci0] 11.589224
       ATT: Write Request (0x12) len 4
         Handle: 0x0022
           Data: 0100
-> ACL Data RX: Handle 64 flags 0x02 dlen 5                  #46 [hci0] 5.977796
+> ACL Data RX: Handle 64 flags 0x02 dlen 5                 #45 [hci0] 11.735682
       ATT: Write Response (0x13) len 0
-< ACL Data TX: Handle 64 flags 0x00 dlen 7                  #47 [hci0] 5.978257
+< ACL Data TX: Handle 64 flags 0x00 dlen 7                 #46 [hci0] 11.736139
       ATT: Read Request (0x0a) len 2
         Handle: 0x001c
-> HCI Event: Number of Completed Packets (0x13) plen 5      #48 [hci0] 6.042804
+> HCI Event: Number of Completed Packets (0x13) plen 5     #47 [hci0] 11.832773
         Num handles: 1
         Handle: 64
-        Count: 1
-> ACL Data RX: Handle 64 flags 0x02 dlen 10                 #49 [hci0] 6.075802
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 10                #48 [hci0] 11.881487
       ATT: Read Response (0x0b) len 5
         Value: 312e352e30
-< ACL Data TX: Handle 64 flags 0x00 dlen 7                  #50 [hci0] 6.076108
+< ACL Data TX: Handle 64 flags 0x00 dlen 7                 #49 [hci0] 11.881680
       ATT: Read Request (0x0a) len 2
         Handle: 0x0016
-> HCI Event: Number of Completed Packets (0x13) plen 5      #51 [hci0] 6.124790
-        Num handles: 1
-        Handle: 64
-        Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 6                  #52 [hci0] 6.172791
+> ACL Data RX: Handle 64 flags 0x02 dlen 6                 #50 [hci0] 11.979432
       ATT: Read Response (0x0b) len 1
         Value: 35
-< ACL Data TX: Handle 64 flags 0x00 dlen 7                  #53 [hci0] 6.173070
+< ACL Data TX: Handle 64 flags 0x00 dlen 7                 #51 [hci0] 11.979771
       ATT: Read Request (0x0a) len 2
         Handle: 0x001a
-> ACL Data RX: Handle 64 flags 0x02 dlen 8                  #54 [hci0] 6.270793
-      ATT: Read Response (0x0b) len 3
-        Value: 302e34
-< ACL Data TX: Handle 64 flags 0x00 dlen 7                  #55 [hci0] 6.271075
-      ATT: Read Request (0x0a) len 2
-        Handle: 0x0014
-> HCI Event: Number of Completed Packets (0x13) plen 5      #56 [hci0] 6.319784
+> HCI Event: Number of Completed Packets (0x13) plen 5     #52 [hci0] 12.125770
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 18                 #57 [hci0] 6.367860
+> ACL Data RX: Handle 64 flags 0x02 dlen 8                 #53 [hci0] 12.125788
+      ATT: Read Response (0x0b) len 3
+        Value: 302e34
+< ACL Data TX: Handle 64 flags 0x00 dlen 7                 #54 [hci0] 12.126067
+      ATT: Read Request (0x0a) len 2
+        Handle: 0x0014
+> ACL Data RX: Handle 64 flags 0x02 dlen 18                #55 [hci0] 12.223311
       ATT: Read Response (0x0b) len 13
         Value: 4d6269656e744c616220496e63
-< ACL Data TX: Handle 64 flags 0x00 dlen 7                  #58 [hci0] 6.368149
+< ACL Data TX: Handle 64 flags 0x00 dlen 7                 #56 [hci0] 12.223508
       ATT: Read Request (0x0a) len 2
         Handle: 0x0018
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #59 [hci0] 6.514572
+> HCI Event: Number of Completed Packets (0x13) plen 5     #57 [hci0] 12.271775
+        Num handles: 1
+        Handle: 64
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #58 [hci0] 12.466460
       ATT: Read Response (0x0b) len 6
         Value: 303437443232
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #60 [hci0] 6.514893
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #59 [hci0] 12.466786
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0180
-> HCI Event: Number of Completed Packets (0x13) plen 5      #61 [hci0] 6.563782
-        Num handles: 1
-        Handle: 64
-        Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #62 [hci0] 6.757791
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #60 [hci0] 12.612772
       ATT: Handle Value Notification (0x1b) len 6
         Handle: 0x0021
           Data: 01800000
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #63 [hci0] 6.758009
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #61 [hci0] 12.612989
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0280
-> ACL Data RX: Handle 64 flags 0x02 dlen 13                 #64 [hci0] 6.855316
+> HCI Event: Number of Completed Packets (0x13) plen 5     #62 [hci0] 12.661763
+        Num handles: 1
+        Handle: 64
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 13                #63 [hci0] 12.856482
       ATT: Handle Value Notification (0x1b) len 8
         Handle: 0x0021
           Data: 028000010300
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #65 [hci0] 6.855565
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #64 [hci0] 12.856727
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0380
-> HCI Event: Number of Completed Packets (0x13) plen 5      #66 [hci0] 6.952783
-        Num handles: 1
-        Handle: 64
-        Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #67 [hci0] 6.953354
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #65 [hci0] 13.002770
       ATT: Handle Value Notification (0x1b) len 6
         Handle: 0x0021
           Data: 03800102
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #68 [hci0] 6.953537
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #66 [hci0] 13.003045
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0480
-> HCI Event: Number of Completed Packets (0x13) plen 5      #69 [hci0] 7.167773
+> HCI Event: Number of Completed Packets (0x13) plen 5     #67 [hci0] 13.051771
         Num handles: 1
         Handle: 64
-        Count: 1
-> ACL Data RX: Handle 64 flags 0x02 dlen 15                 #70 [hci0] 7.196562
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 15                #68 [hci0] 13.149016
       ATT: Handle Value Notification (0x1b) len 10
         Handle: 0x0021
           Data: 0480010000030102
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #71 [hci0] 7.196754
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #69 [hci0] 13.149240
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0580
-> ACL Data RX: Handle 64 flags 0x02 dlen 18                 #72 [hci0] 7.294100
+> ACL Data RX: Handle 64 flags 0x02 dlen 18                #70 [hci0] 13.295263
       ATT: Handle Value Notification (0x1b) len 13
         Handle: 0x0021
           Data: 0580000203030303010101
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #73 [hci0] 7.294350
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #71 [hci0] 13.295483
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0680
-> HCI Event: Number of Completed Packets (0x13) plen 5      #74 [hci0] 7.391771
+> HCI Event: Number of Completed Packets (0x13) plen 5     #72 [hci0] 13.392733
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #75 [hci0] 7.392095
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #73 [hci0] 13.538975
       ATT: Handle Value Notification (0x1b) len 6
         Handle: 0x0021
           Data: 06800000
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #76 [hci0] 7.392299
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #74 [hci0] 13.539224
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0780
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #77 [hci0] 7.489058
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #75 [hci0] 13.637008
       ATT: Handle Value Notification (0x1b) len 6
         Handle: 0x0021
           Data: 07800000
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #78 [hci0] 7.489310
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #76 [hci0] 13.637235
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0880
-> HCI Event: Number of Completed Packets (0x13) plen 5      #79 [hci0] 7.635768
+> HCI Event: Number of Completed Packets (0x13) plen 5     #77 [hci0] 13.685747
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #80 [hci0] 7.635883
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #78 [hci0] 13.782756
       ATT: Handle Value Notification (0x1b) len 6
         Handle: 0x0021
           Data: 08800000
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #81 [hci0] 7.636063
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #79 [hci0] 13.782978
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0980
-> ACL Data RX: Handle 64 flags 0x02 dlen 12                 #82 [hci0] 7.732840
+> ACL Data RX: Handle 64 flags 0x02 dlen 12                #80 [hci0] 13.929529
       ATT: Handle Value Notification (0x1b) len 7
         Handle: 0x0021
           Data: 098000031c
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #83 [hci0] 7.733068
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #81 [hci0] 13.929754
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0a80
-> ACL Data RX: Handle 64 flags 0x02 dlen 12                 #84 [hci0] 7.879616
+> HCI Event: Number of Completed Packets (0x13) plen 5     #82 [hci0] 14.026742
+        Num handles: 1
+        Handle: 64
+        Count: 2
+> ACL Data RX: Handle 64 flags 0x02 dlen 12                #83 [hci0] 14.027035
       ATT: Handle Value Notification (0x1b) len 7
         Handle: 0x0021
           Data: 0a8000001c
-> HCI Event: Number of Completed Packets (0x13) plen 5      #85 [hci0] 7.879769
-        Num handles: 1
-        Handle: 64
-        Count: 2
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #86 [hci0] 7.879810
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #84 [hci0] 14.027204
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0b80
-> ACL Data RX: Handle 64 flags 0x02 dlen 16                 #87 [hci0] 8.074118
+> ACL Data RX: Handle 64 flags 0x02 dlen 16                #85 [hci0] 14.172784
       ATT: Handle Value Notification (0x1b) len 11
         Handle: 0x0021
           Data: 0b8000020800001000
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #88 [hci0] 8.074342
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #86 [hci0] 14.173008
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0c80
-> HCI Event: Number of Completed Packets (0x13) plen 5      #89 [hci0] 8.123767
+> HCI Event: Number of Completed Packets (0x13) plen 5     #87 [hci0] 14.221740
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 12                 #90 [hci0] 8.171603
+> ACL Data RX: Handle 64 flags 0x02 dlen 12                #88 [hci0] 14.270248
       ATT: Handle Value Notification (0x1b) len 7
         Handle: 0x0021
           Data: 0c80000008
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #91 [hci0] 8.171735
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #89 [hci0] 14.270475
       ATT: Write Command (0x52) len 4
         Handle: 0x001f
           Data: 0d80
-> ACL Data RX: Handle 64 flags 0x02 dlen 11                 #92 [hci0] 8.317836
+> ACL Data RX: Handle 64 flags 0x02 dlen 11                #90 [hci0] 14.416492
       ATT: Handle Value Notification (0x1b) len 6
         Handle: 0x0021
           Data: 0d800001
-< ACL Data TX: Handle 64 flags 0x00 dlen 9                  #93 [hci0] 8.318058
+< ACL Data TX: Handle 64 flags 0x00 dlen 9                 #91 [hci0] 14.416730
       ATT: Write Request (0x12) len 4
         Handle: 0x001f
           Data: 0f80
-> HCI Event: Number of Completed Packets (0x13) plen 5      #94 [hci0] 8.366761
+> HCI Event: Number of Completed Packets (0x13) plen 5     #92 [hci0] 14.465744
         Num handles: 1
         Handle: 64
         Count: 2
-> ACL Data RX: Handle 64 flags 0x02 dlen 5                  #95 [hci0] 8.512768
+> ACL Data RX: Handle 64 flags 0x02 dlen 5                 #93 [hci0] 14.562579
       ATT: Write Response (0x13) len 0
-> ACL Data RX: Handle 64 flags 0x02 dlen 13                 #96 [hci0] 8.561608
+> ACL Data RX: Handle 64 flags 0x02 dlen 13                #94 [hci0] 14.563240
       ATT: Handle Value Notification (0x1b) len 8
         Handle: 0x0021
           Data: 0f8000020800
+```
+* Output from `btmon` after <code><b>Error initialising board: 16</b></code>:
+```
+< HCI Command: Disconnect (0x01|0x0006) plen 3             #95 [hci0] 44.863170
+        Handle: 64
+        Reason: Remote User Terminated Connection (0x13)
+> HCI Event: Command Status (0x0f) plen 4                  #96 [hci0] 44.864296
+      Disconnect (0x01|0x0006) ncmd 1
+        Status: Success (0x00)
+> HCI Event: Disconnect Complete (0x05) plen 4             #97 [hci0] 44.984298
+        Status: Success (0x00)
+        Handle: 64
+        Reason: Connection Terminated By Local Host (0x16)
+@ MGMT Event: Device Disconnected (0x000c) plen 8     {0x0002} [hci0] 44.984312
+        LE Address: F2:DC:73:7D:AA:08 (Static)
+        Reason: Connection terminated by local host (0x02)
+@ MGMT Event: Device Disconnected (0x000c) plen 8     {0x0001} [hci0] 44.984312
+        LE Address: F2:DC:73:7D:AA:08 (Static)
+        Reason: Connection terminated by local host (0x02)
 ```
