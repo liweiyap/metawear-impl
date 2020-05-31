@@ -524,7 +524,7 @@ Bluetooth monitor ver 5.54
         Handle: 0x0021
           Data: 0f8000020800
 ```
-* Output from `btmon` after <code><b>Error initialising board: 16</b></code>:
+* Output from `btmon` at `terminate called after throwing an instance of 'std::out_of_range'`:
 ```
 < HCI Command: Disconnect (0x01|0x0006) plen 3             #95 [hci0] 44.863170
         Handle: 64
