@@ -63,17 +63,17 @@ Aborted (core dumped)
 * Output from `btmon`:
 ```
 Bluetooth monitor ver 5.54
-= Note: Linux version 4.15.0-101-generic (x86_64)                      0.337630
-= Note: Bluetooth subsystem version 2.22                               0.337631
-= New Index: 5C:F3:70:99:2A:28 (Primary,USB,hci0)               [hci0] 0.337631
-= Open Index: 5C:F3:70:99:2A:28                                 [hci0] 0.337632
-= Index Info: 5C:F3:70:99:2A:28 (Broadcom Corporation)          [hci0] 0.337632
-@ MGMT Open: bluetoothd (privileged) version 1.14             {0x0001} 0.337633
-@ MGMT Open: btmon (privileged) version 1.14                  {0x0002} 0.337643
-@ RAW Open: main                                             {0x0003} 94.195595
-@ RAW Close: main                                            {0x0003} 94.195615
-@ RAW Open: main                                             {0x0003} 94.195631
-@ RAW Close: main                                            {0x0003} 94.195634
+= Note: Linux version 4.15.0-101-generic (x86_64)                      0.539630
+= Note: Bluetooth subsystem version 2.22                               0.539631
+= New Index: 5C:F3:70:99:2A:28 (Primary,USB,hci0)               [hci0] 0.539632
+= Open Index: 5C:F3:70:99:2A:28                                 [hci0] 0.539632
+= Index Info: 5C:F3:70:99:2A:28 (Broadcom Corporation)          [hci0] 0.539633
+@ MGMT Open: bluetoothd (privileged) version 1.14             {0x0001} 0.539633
+@ MGMT Open: btmon (privileged) version 1.14                  {0x0002} 0.539643
+@ RAW Open: main                                              {0x0003} 2.741449
+@ RAW Close: main                                             {0x0003} 2.741461
+@ RAW Open: main                                              {0x0003} 2.741468
+@ RAW Close: main                                             {0x0003} 2.741470
 < HCI Command: LE Set Scan Parameters (0x08|0x000b) plen 7   #1 [hci0] 2.741495
         Type: Passive (0x00)
         Interval: 60.000 msec (0x0060)
